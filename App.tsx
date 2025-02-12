@@ -8,8 +8,8 @@ import ComodsIcon from './assets/Modelos3D/ComodosIcon.png';
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  //função assincona da API
- async function verifyAuthehtication() {
+  //função assincrona da API
+ async function verifyAuthentication() {
   //verificar se o dispositivo tem o suporte para o API
   const compitable = await LocalAuthentication.hasHardwareAsync();
   console.log(compitable);
@@ -42,7 +42,7 @@ export default function App() {
   }
 
  useEffect(() => {
-    verifyAuthehtication();
+    verifyAuthentication();
  }, []);
 
   return (
@@ -54,13 +54,21 @@ export default function App() {
         Usuario tem acesso? : {isAuthenticated ? 'Sim' : 'Não'}
       </View>
 
-      <View>
-        <Text>Easily Control
-        Your Home</Text>
+      <View style={styles.TextContainer}>
+        <Text style={styles.TextStyle}>Easily Control</Text>
+        <Text style={styles.TextStyle}>Your Home</Text>
+        
+      <View style={styles.InfoContainer}>
+        <Text style={styles.Description}>Manage your home from anytime,</Text>
+        <Text style={styles.Description}>anywhere.</Text>
       </View>
-      <Button 
-      title="Verificar Autenticação" 
-      onPress={handleAuthentication} />
+
+      </View>
+
+      <View style={styles.Authenticate}>
+        <Text style={styles.touchIdText}>Place your finger to open</Text>
+        
+      </View>
     </View>
   );
 }
