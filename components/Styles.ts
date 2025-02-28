@@ -4,10 +4,8 @@ const { width, height } = Dimensions.get('window');
 export const styles = StyleSheet.create({
     PrimaryScreen: {
       flex: 1,
-      backgroundColor: 'black',
       alignItems: 'baseline',
-      justifyContent: 'space-evenly',
-      
+          
     },
 
     IconCircule:{
@@ -18,7 +16,7 @@ export const styles = StyleSheet.create({
       backgroundColor: '#001524',
       justifyContent: 'center',
       alignItems: 'center',
-      marginBottom: 100,
+      marginBottom: 80,
       marginTop: 80,    
     },
 
@@ -30,7 +28,8 @@ export const styles = StyleSheet.create({
     
     TextContainer: {
       marginLeft: 30,
-      backgroundColor: 'red',
+      marginTop: 48,
+      marginBottom: 70,
       textAlign: 'left',
     },
 
@@ -38,19 +37,15 @@ export const styles = StyleSheet.create({
       fontFamily: 'Lexend',
       fontWeight: 'bold',
       lineHeight: 40,
-      
       fontSize: 40,
-    },
-
-    InfoContainer: {
-      backgroundColor: 'blue',
-      textAlign: 'center',
     },
     
     Description: {
       fontFamily: 'Lexend',
       fontSize: 20,
+      color: '#959595',
     },
+    
 
     Authenticate: {
       alignSelf: 'center',
@@ -67,8 +62,11 @@ export const styles = StyleSheet.create({
       fontSize: 16,
       color: '#959595',
       fontFamily: 'Lexend',
+      paddingTop: 20,
     },
     
-    
-    
+    FingerTOUCH: {
+      marginTop: -20,   
+    },
+ 
 });
