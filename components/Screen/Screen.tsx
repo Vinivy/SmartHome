@@ -19,6 +19,12 @@ export default function Screen(){
      const batteryCapacitymAh = 5000;
      const batteryVoltage = 3.7; // Tensão nominal da bateria em volts (geralmente 3.7V)
 
+    const [selectedRoom, setSelectedRoom] = useState<string>("");
+
+    const handlePress = (room: string) => {
+        setSelectedRoom(room);
+    };
+    
     useEffect(() => {
         async function Porcent(){
             const Level = await Battery.getBatteryLevelAsync();
@@ -35,6 +41,7 @@ export default function Screen(){
         }
         Porcent();
     }, []);
+
     return(
         <View>
             <View style={Styles.Header}> 
@@ -63,6 +70,28 @@ export default function Screen(){
                  source={require('../../assets/Modelos3D/ThunderIlustration.png')}
                  style={{width: 120, height: 120, alignSelf: 'center',}}
                  />
+            </View>
+            <View style={Styles.Options}>
+            <View style={Styles.Options}>
+                <TouchableOpacity onPress={() => handlePress('Living Room')}>
+                    <Text style={[Styles.OneOp, selectedRoom === 'Living Room' && Styles.selectedText]}>
+                    Living Room
+                    </Text>
+                    {selectedRoom === 'Living Room' && <View style={Styles.indicator} />}
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => handlePress('Bedroom')}>
+                    <Text style={[Styles.OneOp, selectedRoom === 'Bedroom' && Styles.selectedText]}>
+                    Bedroom
+                    </Text>
+                    {selectedRoom === 'Bedroom' && <View style={Styles.indicator} />}
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => handlePress('Kitchen')}>
+                    <Text style={[Styles.OneOp, selectedRoom === 'Kitchen' && Styles.selectedText]}>
+                    Kitchen
+                    </Text>
+                    {selectedRoom === 'Kitchen' && <View style={Styles.indicator} />}
+                </TouchableOpacity>
+            </View>
             </View>
         </View>
     )

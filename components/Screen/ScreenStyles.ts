@@ -47,10 +47,10 @@ export const Styles = StyleSheet.create({
     Battery : {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        borderRadius: 10,
+        borderRadius: 20,
         height: 130,
         padding: 20,
-        backgroundColor: 'green',
+        backgroundColor: '#F5F5F5',
         marginLeft: 20,
         marginRight: 20,
     },
@@ -78,4 +78,32 @@ export const Styles = StyleSheet.create({
         fontSize: 15,
         color: '#838A8F',
     },
+
+    Options : {
+        justifyContent: 'space-evenly',
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginLeft: 20,
+        marginTop: 20,
+    },
+
+    OneOp : {
+        fontFamily: 'Lexend',
+        color: '#959595',
+        fontSize: 17,
+        fontWeight: 'semibold',
+    },
+
+      selectedText: {
+        color: 'black',
+      },
+      
+      indicator: {
+        width: 10,
+        height: 10,
+        borderRadius: 5,
+        backgroundColor: 'black',
+        alignSelf: 'center',
+        marginTop: 5,
+      },
 });
