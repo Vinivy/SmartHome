@@ -96,14 +96,89 @@ export const Styles = StyleSheet.create({
 
       selectedText: {
         color: 'black',
+        fontWeight: 'bold',
       },
       
       indicator: {
-        width: 10,
-        height: 10,
+        width: 7,
+        height: 7,
         borderRadius: 5,
         backgroundColor: 'black',
         alignSelf: 'center',
-        marginTop: 5,
+        
       },
+
+      BoxesFunction : {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
+
+        marginLeft: 20,
+        marginTop: 20,
+      },
+
+      Lights : {
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        borderRadius: 20,
+        width: 180,
+        height: 190,
+        backgroundColor: '#EDEDED',
+      },
+
+      IconLight : {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 50,
+        height: 50, 
+        borderRadius: 25,
+        backgroundColor: '#F5F5F5',
+      },
+
+      Title : {},
+
+      Description : {},
+
+      StatusLaps : {},
+
+      /*  Smarth    */
+      Smart : {
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        borderRadius: 20,
+        width: 180,
+        height: 220,
+        backgroundColor: '#EDEDED',
+      },
+
+      IconSmart : {},
+
+      StatusSmart : {},
+
+      Conditionar : {
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        borderRadius: 20,
+        width: 180,
+        height: 220,
+        backgroundColor: '#EDEDED',
+      },
+
+      IconConditionar : {},
+
+      StatusConditionar : {},
+
+      Studio : {
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        borderRadius: 20,
+        width: 180,
+        height: 220,
+        backgroundColor: '#EDEDED',
+        marginTop: 20,
+      },
+
+      IconStudio : {},
+
+      StatusStudio : {},
 });

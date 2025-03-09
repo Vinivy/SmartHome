@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { View,Text, Image, Touchable, TouchableOpacity } from "react-native"
+import { View,Text, Image, Touchable, TouchableOpacity, Button } from "react-native"
 import { Styles } from "./ScreenStyles"
 import * as Battery from 'expo-battery';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -20,6 +20,19 @@ export default function Screen(){
      const batteryVoltage = 3.7; // Tensão nominal da bateria em volts (geralmente 3.7V)
 
     const [selectedRoom, setSelectedRoom] = useState<string>("");
+
+    const [OnLaps, setOnLaps] = useState<boolean>(false);
+    const [OnSmart, setOnSmart] = useState<boolean>(false);
+    const [OnConditionar, setOnConditionar] = useState<boolean>(false);
+    const [OnStudio, setOnStudio] = useState<boolean>(false);
+
+    function Light(){
+        setOnLaps(!OnLaps);
+    }
+
+    function Smart(){
+        setOnSmart(!OnSmart);
+    }
 
     const handlePress = (room: string) => {
         setSelectedRoom(room);
@@ -71,7 +84,7 @@ export default function Screen(){
                  style={{width: 120, height: 120, alignSelf: 'center',}}
                  />
             </View>
-            <View style={Styles.Options}>
+            
             <View style={Styles.Options}>
                 <TouchableOpacity onPress={() => handlePress('Living Room')}>
                     <Text style={[Styles.OneOp, selectedRoom === 'Living Room' && Styles.selectedText]}>
@@ -92,6 +105,52 @@ export default function Screen(){
                     {selectedRoom === 'Kitchen' && <View style={Styles.indicator} />}
                 </TouchableOpacity>
             </View>
+
+            <View style={Styles.BoxesFunction}>
+                <View style={Styles.Lights}>
+                    <View style={Styles.IconLight}>
+                     <Icon name="lightbulb-o" size={30} color="#000" />
+                    </View>
+                    <Text style={Styles.Title}>Lighting</Text>
+                    <Text style={Styles.Description}>4 lamps</Text>
+                    <View style={{flexDirection: 'row'}}>
+                        <Text style={Styles.StatusLaps}>{OnLaps ? 'On' : 'Off'}</Text>
+                        <Button title="Turn On" onPress={Light}/>
+                    </View>
+                </View>
+                <View style={Styles.Smart}>
+                    <View style={Styles.IconSmart}>
+                        <Icon name="lightbulb-o" size={30} color="#000" />
+                    </View>1
+                    <Text style={Styles.Title}>Smart</Text>
+                    <Text style={Styles.Description}>4 lamps</Text>
+                    <View style={{flexDirection: 'row'}}>
+                        <Text style={Styles.StatusSmart}>{OnSmart ? 'On' : 'Off'}</Text>
+                        <Button title="Turn On" onPress={Smart}/>
+                    </View>
+                </View>
+                <View style={Styles.Conditionar}>
+                    <View style={Styles.IconConditionar}>
+                        <Icon name="lightbulb-o" size={30} color="#000" />
+                    </View>
+                    <Text style={Styles.Title}>Conditionar</Text>
+                    <Text style={Styles.Description}>4 lamps</Text>
+                    <View style={{flexDirection: 'row'}}>
+                        <Text style={Styles.StatusConditionar}>{OnConditionar ? 'On' : 'Off'}</Text>
+                        <Button title="Turn On" onPress={Light}/>
+                    </View>
+                </View>
+                <View style={Styles.Studio}>
+                    <View style={Styles.IconStudio}>
+                        <Icon name="lightbulb-o" size={30} color="#000" />
+                    </View>
+                    <Text style={Styles.Title}>Studio</Text>
+                    <Text style={Styles.Description}>4 lamps</Text>
+                    <View style={{flexDirection: 'row'}}>
+                        <Text style={Styles.StatusStudio}>{OnStudio ? 'On' : 'Off'}</Text>
+                        <Button title="Turn On" onPress={Light}/>
+                    </View>
+                </View>
             </View>
         </View>
     )
