@@ -108,19 +108,20 @@ export const Styles = StyleSheet.create({
         
       },
 
+      /*  BoxesFunction  Colocar a função de Dark apos clicar  */
       BoxesFunction : {
         flexDirection: 'row',
         flexWrap: 'wrap',
-        justifyContent: 'space-between',
+        justifyContent: 'space-evenly',
 
-        marginLeft: 20,
         marginTop: 20,
       },
 
       Lights : {
-        justifyContent: 'space-evenly',
+        justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 20,
+        paddingRight: 30,
         width: 180,
         height: 190,
         backgroundColor: '#EDEDED',
@@ -132,53 +133,132 @@ export const Styles = StyleSheet.create({
         width: 50,
         height: 50, 
         borderRadius: 25,
+        marginBottom: 10,
+        marginRight: 60,
         backgroundColor: '#F5F5F5',
       },
 
-      Title : {},
+      RadioLight : {},
 
-      Description : {},
+      Title : {
+        fontFamily: 'Lexend',
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#000',
+      },
 
-      StatusLaps : {},
+      Description : {
+        fontFamily: 'Lexend',
+        fontSize: 15,
+        fontWeight: 'medium',
+        color: '#848484',
+      },
+
+      StatusLaps : {
+        fontFamily: 'Lexend',
+        fontSize: 15,
+        fontWeight: 'bold',
+        color: '#7D7D7D',
+      },
 
       /*  Smarth    */
       Smart : {
-        justifyContent: 'space-evenly',
+        justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 20,
+        paddingRight: 30,
         width: 180,
         height: 220,
         backgroundColor: '#EDEDED',
       },
 
-      IconSmart : {},
+      IconSmart : {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 50,
+        height: 50, 
+        borderRadius: 25,
+        marginBottom: 10,
+        marginRight: 60,
+        backgroundColor: '#F5F5F5',
+      },
 
       StatusSmart : {},
 
+      RadioSmart : {},
+
       Conditionar : {
-        justifyContent: 'space-evenly',
+        justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 20,
+        paddingRight: 30,
         width: 180,
         height: 220,
         backgroundColor: '#EDEDED',
       },
 
-      IconConditionar : {},
+      IconConditionar : {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 50,
+        height: 50, 
+        borderRadius: 25,
+        marginBottom: 10,
+        marginRight: 60,
+        backgroundColor: '#F5F5F5',
+      },
 
       StatusConditionar : {},
 
+      RadioConditionar : {},
+
       Studio : {
-        justifyContent: 'space-evenly',
+        justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 20,
+        paddingRight: 30,
         width: 180,
         height: 220,
         backgroundColor: '#EDEDED',
         marginTop: 20,
       },
 
-      IconStudio : {},
+      IconStudio : {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 50,
+        height: 50, 
+        borderRadius: 25,
+        marginBottom: 10,
+        marginRight: 60,
+        backgroundColor: '#F5F5F5',
+      },
 
       StatusStudio : {},
+
+      RadioStudio : {},
+
+      /*  HotBar  */
+      HotBar : {
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        marginTop: 50,
+      },
+
+      iconHome : { justifyContent: 'center',
+        alignItems: 'center',
+        width: 50,
+        height: 50, 
+        borderRadius: 25,
+      },
+      iconadd : {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 50,
+        height: 50, 
+        borderRadius: 25,
+        backgroundColor: '#000000',
+      },
+      iconstats : {},
 });

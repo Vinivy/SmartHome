@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react"
-import { View,Text, Image, Touchable, TouchableOpacity, Button } from "react-native"
+import { View,Text, Image, TouchableOpacity, Button } from "react-native"
 import { Styles } from "./ScreenStyles"
 import * as Battery from 'expo-battery';
-import Icon from 'react-native-vector-icons/FontAwesome';
+
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default function Screen(){
     const date = new Date();
@@ -25,6 +26,7 @@ export default function Screen(){
     const [OnSmart, setOnSmart] = useState<boolean>(false);
     const [OnConditionar, setOnConditionar] = useState<boolean>(false);
     const [OnStudio, setOnStudio] = useState<boolean>(false);
+    const [OnDark, setOnDark] = useState<string>("");
 
     function Light(){
         setOnLaps(!OnLaps);
@@ -34,10 +36,22 @@ export default function Screen(){
         setOnSmart(!OnSmart);
     }
 
+    function Cond(){
+        setOnConditionar(!OnConditionar);
+    }
+
+    function Studio(){
+        setOnStudio(!OnStudio);
+    }
+
     const handlePress = (room: string) => {
         setSelectedRoom(room);
     };
     
+    const DarkOn = (On: string) => {
+        setOnDark(On);
+    };
+
     useEffect(() => {
         async function Porcent(){
             const Level = await Battery.getBatteryLevelAsync();
@@ -109,48 +123,69 @@ export default function Screen(){
             <View style={Styles.BoxesFunction}>
                 <View style={Styles.Lights}>
                     <View style={Styles.IconLight}>
-                     <Icon name="lightbulb-o" size={30} color="#000" />
+                     <Icon name="bulb-outline" size={30}  />
                     </View>
                     <Text style={Styles.Title}>Lighting</Text>
                     <Text style={Styles.Description}>4 lamps</Text>
                     <View style={{flexDirection: 'row'}}>
                         <Text style={Styles.StatusLaps}>{OnLaps ? 'On' : 'Off'}</Text>
-                        <Button title="Turn On" onPress={Light}/>
+                        <Button title="clic" onPress={Light} />
+                        <View style={Styles.RadioLight}>
+                        </View>
                     </View>
                 </View>
                 <View style={Styles.Smart}>
                     <View style={Styles.IconSmart}>
-                        <Icon name="lightbulb-o" size={30} color="#000" />
-                    </View>1
-                    <Text style={Styles.Title}>Smart</Text>
+                        <Icon name="tv-outline" size={30} color="#000" />
+                    </View>
+                        <Text style={Styles.Title}>Samsung</Text>
+                        <Text style={Styles.Title}>Smart Tv</Text>
                     <Text style={Styles.Description}>4 lamps</Text>
                     <View style={{flexDirection: 'row'}}>
                         <Text style={Styles.StatusSmart}>{OnSmart ? 'On' : 'Off'}</Text>
-                        <Button title="Turn On" onPress={Smart}/>
+                        <Button title="clic" onPress={Smart} />
+                        <View style={Styles.RadioSmart}>
+                        </View>
                     </View>
                 </View>
                 <View style={Styles.Conditionar}>
                     <View style={Styles.IconConditionar}>
-                        <Icon name="lightbulb-o" size={30} color="#000" />
+                        <Icon name="snow-outline" size={30} color="#000" />
                     </View>
                     <Text style={Styles.Title}>Conditionar</Text>
                     <Text style={Styles.Description}>4 lamps</Text>
                     <View style={{flexDirection: 'row'}}>
                         <Text style={Styles.StatusConditionar}>{OnConditionar ? 'On' : 'Off'}</Text>
-                        <Button title="Turn On" onPress={Light}/>
+                        <Button title="Clic" onPress={Cond}/>
+                        <View style={Styles.RadioConditionar}>
+                        </View>
                     </View>
                 </View>
                 <View style={Styles.Studio}>
                     <View style={Styles.IconStudio}>
-                        <Icon name="lightbulb-o" size={30} color="#000" />
+                        <Icon name="volume-high-outline" size={30} color="#000" />
                     </View>
                     <Text style={Styles.Title}>Studio</Text>
                     <Text style={Styles.Description}>4 lamps</Text>
                     <View style={{flexDirection: 'row'}}>
                         <Text style={Styles.StatusStudio}>{OnStudio ? 'On' : 'Off'}</Text>
-                        <Button title="Turn On" onPress={Light}/>
+                        <Button title="Clicar" onPress={Studio} />
+                        <View style={Styles.RadioStudio}>
+                        </View>
                     </View>
                 </View>
+            </View>
+            
+            <View style={Styles.HotBar}>
+                <TouchableOpacity style={Styles.iconHome}>
+                    <Icon name="home-outline" size={30} color="#959595" />
+                </TouchableOpacity>
+                <TouchableOpacity style={Styles.iconadd}>
+                    <Icon name="add-outline" size={30} color="#fff" />
+                </TouchableOpacity>
+                <TouchableOpacity style={Styles.iconstats}>
+                    <Icon name="stats-chart-outline" size={30} color="#959595" />
+                </TouchableOpacity>
             </View>
         </View>
     )
