@@ -69,4 +69,10 @@ export const styles = StyleSheet.create({
       marginTop: -20,   
     },
  
+    Finger : {
+      zIndex: 1,
+      position: 'absolute',
+      top: 40,
+      right: 131,
+    },
 });

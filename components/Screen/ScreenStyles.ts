@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { Animated } from 'react-native';
 
 export const Styles = StyleSheet.create({
 
@@ -114,7 +115,7 @@ export const Styles = StyleSheet.create({
         flexWrap: 'wrap',
         justifyContent: 'space-evenly',
 
-        marginTop: 20,
+        marginTop: 25,
       },
 
       Lights : {
@@ -123,7 +124,7 @@ export const Styles = StyleSheet.create({
         borderRadius: 20,
         paddingRight: 30,
         width: 180,
-        height: 190,
+        height: 200,
         backgroundColor: '#EDEDED',
       },
 
@@ -138,9 +139,15 @@ export const Styles = StyleSheet.create({
         backgroundColor: '#F5F5F5',
       },
 
-      RadioLight : {},
-
       Title : {
+        fontFamily: 'Lexend',
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#000',
+        paddingRight: 30,
+      },
+
+      TitleCond : {
         fontFamily: 'Lexend',
         fontSize: 20,
         fontWeight: 'bold',
@@ -152,6 +159,9 @@ export const Styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: 'medium',
         color: '#848484',
+        marginTop: 5,
+        paddingRight: 40,
+        marginBottom: 10,
       },
 
       StatusLaps : {
@@ -159,6 +169,26 @@ export const Styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: 'bold',
         color: '#7D7D7D',
+        paddingEnd: 50,
+        marginLeft: 40,
+      },
+
+      MovLight : {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        width: 65,
+        height: 35,
+        borderRadius: 20,
+        backgroundColor: '#D6D6D6',
+      },
+
+      RadioLight : {
+        width: 30,
+        height: 30,
+        borderRadius: 15,
+        backgroundColor: '#F5F5F5',
+        margin: 5,
       },
 
       /*  Smarth    */
@@ -183,9 +213,32 @@ export const Styles = StyleSheet.create({
         backgroundColor: '#F5F5F5',
       },
 
-      StatusSmart : {},
+      StatusSmart : {
+        fontFamily: 'Lexend',
+        fontSize: 15,
+        fontWeight: 'bold',
+        color: '#7D7D7D',
+        paddingEnd: 50,
+        marginLeft: 40,
+      },
 
-      RadioSmart : {},
+      MovSmart : {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        width: 65,
+        height: 35,
+        borderRadius: 20,
+        backgroundColor: '#D6D6D6',
+      },
+
+      RadioSmart : {
+        width: 30,
+        height: 30,
+        borderRadius: 15,
+        backgroundColor: '#F5F5F5',
+        margin: 5,
+      },
 
       Conditionar : {
         justifyContent: 'center',
@@ -208,9 +261,32 @@ export const Styles = StyleSheet.create({
         backgroundColor: '#F5F5F5',
       },
 
-      StatusConditionar : {},
+      StatusConditionar : {
+        fontFamily: 'Lexend',
+        fontSize: 15,
+        fontWeight: 'bold',
+        color: '#7D7D7D',
+        paddingEnd: 50,
+        marginLeft: 40,
+      },
 
-      RadioConditionar : {},
+      MovCond : {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        width: 65,
+        height: 35,
+        borderRadius: 20,
+        backgroundColor: '#D6D6D6',
+      },
+
+      RadioConditionar : {
+        width: 30,
+        height: 30,
+        borderRadius: 15,
+        backgroundColor: '#F5F5F5',
+        margin: 5,
+      },
 
       Studio : {
         justifyContent: 'center',
@@ -218,7 +294,7 @@ export const Styles = StyleSheet.create({
         borderRadius: 20,
         paddingRight: 30,
         width: 180,
-        height: 220,
+        height: 250,
         backgroundColor: '#EDEDED',
         marginTop: 20,
       },
@@ -234,16 +310,39 @@ export const Styles = StyleSheet.create({
         backgroundColor: '#F5F5F5',
       },
 
-      StatusStudio : {},
+      StatusStudio : {
+        fontFamily: 'Lexend',
+        fontSize: 15,
+        fontWeight: 'bold',
+        color: '#7D7D7D',
+        paddingEnd: 50,
+        marginLeft: 40,
+      },
 
-      RadioStudio : {},
+      MovStudio : {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        width: 65,
+        height: 35,
+        borderRadius: 20,
+        backgroundColor: '#D6D6D6',
+      },
+
+      RadioStudio : {
+        width: 30,
+        height: 30,
+        borderRadius: 15,
+        backgroundColor: '#F5F5F5',
+        margin: 5,
+      },
 
       /*  HotBar  */
       HotBar : {
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         alignItems: 'center',
-        marginTop: 50,
+        marginTop: 20,
       },
 
       iconHome : { justifyContent: 'center',
@@ -252,6 +351,7 @@ export const Styles = StyleSheet.create({
         height: 50, 
         borderRadius: 25,
       },
+
       iconadd : {
         justifyContent: 'center',
         alignItems: 'center',
@@ -260,5 +360,6 @@ export const Styles = StyleSheet.create({
         borderRadius: 25,
         backgroundColor: '#000000',
       },
+
       iconstats : {},
 });

@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react"
-import { View,Text, Image, TouchableOpacity, Button } from "react-native"
-import { Styles } from "./ScreenStyles"
+import React, { useEffect, useState } from "react";
+import { View, Text, Image, TouchableOpacity, Button } from "react-native";
+import { Styles } from "./ScreenStyles";
 import * as Battery from 'expo-battery';
-
 import Icon from 'react-native-vector-icons/Ionicons';
 
-export default function Screen(){
+export default function Screen() {
     const date = new Date();
     const day = date.getDate();
     const month = date.getMonth();
@@ -16,9 +15,8 @@ export default function Screen(){
     const [BatteryPorcent, setBatteryPorcent] = useState<string>("");
     const [batteryKWh, setBatteryKWh] = useState<number | null>(null);
     const [Convertio, setConvertio] = useState<string>("");
-     // Capacidade total da bateria do dispositivo em mAh (você pode ajustar este valor conforme necessário)
-     const batteryCapacitymAh = 5000;
-     const batteryVoltage = 3.7; // Tensão nominal da bateria em volts (geralmente 3.7V)
+    const batteryCapacitymAh = 5000;
+    const batteryVoltage = 3.7;
 
     const [selectedRoom, setSelectedRoom] = useState<string>("");
 
@@ -28,63 +26,61 @@ export default function Screen(){
     const [OnStudio, setOnStudio] = useState<boolean>(false);
     const [OnDark, setOnDark] = useState<string>("");
 
-    function Light(){
+    function Light() {
         setOnLaps(!OnLaps);
     }
 
-    function Smart(){
+    function Smart() {
         setOnSmart(!OnSmart);
     }
 
-    function Cond(){
+    function Cond() {
         setOnConditionar(!OnConditionar);
     }
 
-    function Studio(){
+    function Studio() {
         setOnStudio(!OnStudio);
     }
 
     const handlePress = (room: string) => {
         setSelectedRoom(room);
     };
-    
+
     const DarkOn = (On: string) => {
         setOnDark(On);
     };
 
     useEffect(() => {
-        async function Porcent(){
+        async function Porcent() {
             const Level = await Battery.getBatteryLevelAsync();
             setBatteryPorcent(Math.round(Level * 100) + "%");
-            
-            // Converter o nível da bateria para kWh
-          const capacityAtCurrentLevel = (batteryCapacitymAh * Level); // Capacidade em mAh no nível atual
-          const kWh = (capacityAtCurrentLevel * batteryVoltage) / 1000000; // Converter mAh para kWh
-          setBatteryKWh(kWh);
-          //
-        const kWhFormatted = kWh.toFixed(6);
-        const Kilowart = kWhFormatted.substring(3); // Formatar o valor de kWh com duas casas decimais
-        setConvertio(Kilowart);
+
+            const capacityAtCurrentLevel = (batteryCapacitymAh * Level);
+            const kWh = (capacityAtCurrentLevel * batteryVoltage) / 1000000;
+            setBatteryKWh(kWh);
+
+            const kWhFormatted = kWh.toFixed(6);
+            const Kilowart = kWhFormatted.substring(3);
+            setConvertio(Kilowart);
         }
         Porcent();
     }, []);
 
-    return(
+    return (
         <View>
-            <View style={Styles.Header}> 
+            <View style={Styles.Header}>
                 <View style={Styles.Profille}>
-                    <Image 
-                    style={Styles.Icon} 
-                    source={require('../../assets/Modelos3D/Profile.png')} 
+                    <Image
+                        style={Styles.Icon}
+                        source={require('../../assets/Modelos3D/Profile.png')}
                     />
-
                     <View style={Styles.Name}>
                         <Text style={Styles.NameText}>Vinivy Gabriel</Text>
                         <Text style={Styles.HourText}>{nomeDoDia}, {day} {monthName}</Text>
                     </View>
                 </View>
                 <TouchableOpacity>
-                    <Icon name="cog" size={30} color="#000" style={Styles.config}/>
+                    <Icon name="cog" size={30} color="#000" style={Styles.config} />
                 </TouchableOpacity>
             </View>
             <View style={Styles.Battery}>
@@ -94,88 +90,88 @@ export default function Screen(){
                     <Text style={Styles.Conver}>{Convertio} kWh</Text>
                 </View>
                 <Image
-                 source={require('../../assets/Modelos3D/ThunderIlustration.png')}
-                 style={{width: 120, height: 120, alignSelf: 'center',}}
-                 />
+                    source={require('../../assets/Modelos3D/ThunderIlustration.png')}
+                    style={{ width: 120, height: 120, alignSelf: 'center', }}
+                />
             </View>
-            
+
             <View style={Styles.Options}>
                 <TouchableOpacity onPress={() => handlePress('Living Room')}>
                     <Text style={[Styles.OneOp, selectedRoom === 'Living Room' && Styles.selectedText]}>
-                    Living Room
+                        Living Room
                     </Text>
                     {selectedRoom === 'Living Room' && <View style={Styles.indicator} />}
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => handlePress('Bedroom')}>
                     <Text style={[Styles.OneOp, selectedRoom === 'Bedroom' && Styles.selectedText]}>
-                    Bedroom
+                        Bedroom
                     </Text>
                     {selectedRoom === 'Bedroom' && <View style={Styles.indicator} />}
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => handlePress('Kitchen')}>
                     <Text style={[Styles.OneOp, selectedRoom === 'Kitchen' && Styles.selectedText]}>
-                    Kitchen
+                        Kitchen
                     </Text>
                     {selectedRoom === 'Kitchen' && <View style={Styles.indicator} />}
                 </TouchableOpacity>
             </View>
 
             <View style={Styles.BoxesFunction}>
-                <View style={Styles.Lights}>
-                    <View style={Styles.IconLight}>
-                     <Icon name="bulb-outline" size={30}  />
+                <View style={[Styles.Lights, OnLaps && { backgroundColor: 'black' }]}>
+                    <View style={[Styles.IconLight, OnLaps && { backgroundColor: '#2E2E2E' }]}>
+                        <Icon name="bulb-outline" size={30} color={OnLaps ? "#fff" : "#000"} />
                     </View>
-                    <Text style={Styles.Title}>Lighting</Text>
-                    <Text style={Styles.Description}>4 lamps</Text>
-                    <View style={{flexDirection: 'row'}}>
-                        <Text style={Styles.StatusLaps}>{OnLaps ? 'On' : 'Off'}</Text>
-                        <Button title="clic" onPress={Light} />
-                        <View style={Styles.RadioLight}>
-                        </View>
-                    </View>
-                </View>
-                <View style={Styles.Smart}>
-                    <View style={Styles.IconSmart}>
-                        <Icon name="tv-outline" size={30} color="#000" />
-                    </View>
-                        <Text style={Styles.Title}>Samsung</Text>
-                        <Text style={Styles.Title}>Smart Tv</Text>
-                    <Text style={Styles.Description}>4 lamps</Text>
-                    <View style={{flexDirection: 'row'}}>
-                        <Text style={Styles.StatusSmart}>{OnSmart ? 'On' : 'Off'}</Text>
-                        <Button title="clic" onPress={Smart} />
-                        <View style={Styles.RadioSmart}>
-                        </View>
+                    <Text style={[Styles.Title, OnLaps && { color: 'white' }]}>Lighting</Text>
+                    <Text style={[Styles.Description, OnLaps && { color: 'white' }]}>4 lamps</Text>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={[Styles.StatusLaps, OnLaps && { color: 'white' }]}>{OnLaps ? 'On' : 'Off'}</Text>
+                        <TouchableOpacity style={Styles.MovLight} onPress={Light}>
+                            <View style={Styles.RadioLight}></View>
+                        </TouchableOpacity>
                     </View>
                 </View>
-                <View style={Styles.Conditionar}>
-                    <View style={Styles.IconConditionar}>
-                        <Icon name="snow-outline" size={30} color="#000" />
+                <View style={[Styles.Smart, OnSmart && { backgroundColor: 'black' }]}>
+                    <View style={[Styles.IconSmart, OnSmart && { backgroundColor: '#2E2E2E' }]}>
+                        <Icon name="tv-outline" size={30} color={OnSmart ? "#fff" : "#000"} />
                     </View>
-                    <Text style={Styles.Title}>Conditionar</Text>
-                    <Text style={Styles.Description}>4 lamps</Text>
-                    <View style={{flexDirection: 'row'}}>
-                        <Text style={Styles.StatusConditionar}>{OnConditionar ? 'On' : 'Off'}</Text>
-                        <Button title="Clic" onPress={Cond}/>
-                        <View style={Styles.RadioConditionar}>
-                        </View>
+                    <Text style={[Styles.Title, OnSmart && { color: 'white' }]}>Samsung</Text>
+                    <Text style={[Styles.Title, OnSmart && { color: 'white' }]}>Smart Tv</Text>
+                    <Text style={[Styles.Description, OnSmart && { color: 'white' }]}>2 devices</Text>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={[Styles.StatusSmart, OnSmart && { color: 'white' }]}>{OnSmart ? 'On' : 'Off'}</Text>
+                        <TouchableOpacity style={Styles.MovSmart} onPress={Smart}>
+                            <View style={Styles.RadioSmart}></View>
+                        </TouchableOpacity>
                     </View>
                 </View>
-                <View style={Styles.Studio}>
-                    <View style={Styles.IconStudio}>
-                        <Icon name="volume-high-outline" size={30} color="#000" />
+                <View style={[Styles.Conditionar, OnConditionar && { backgroundColor: 'black' }]}>
+                    <View style={[Styles.IconConditionar, OnConditionar && { backgroundColor: '#2E2E2E' }]}>
+                        <Icon name="snow-outline" size={30} color={OnConditionar ? "#fff" : "#000"} />
                     </View>
-                    <Text style={Styles.Title}>Studio</Text>
-                    <Text style={Styles.Description}>4 lamps</Text>
-                    <View style={{flexDirection: 'row'}}>
-                        <Text style={Styles.StatusStudio}>{OnStudio ? 'On' : 'Off'}</Text>
-                        <Button title="Clicar" onPress={Studio} />
-                        <View style={Styles.RadioStudio}>
-                        </View>
+                    <Text style={[Styles.TitleCond, OnConditionar && { color: 'white' }]}>Conditionar</Text>
+                    <Text style={[Styles.Description, OnConditionar && { color: 'white' }]}>1 device</Text>
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                        <Text style={[Styles.StatusConditionar, OnConditionar && { color: 'white' }]}>{OnConditionar ? 'On' : 'Off'}</Text>
+                        <TouchableOpacity style={Styles.MovCond} onPress={Cond}>
+                            <View style={Styles.RadioConditionar}></View>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+                <View style={[Styles.Studio, OnStudio && { backgroundColor: 'black' }]}>
+                    <View style={[Styles.IconStudio, OnStudio && { backgroundColor: '#2E2E2E'}]}>
+                        <Icon name="volume-medium-outline" size={30} color={OnStudio ? "#fff" : "#000"} />
+                    </View>
+                    <Text style={[Styles.Title, OnStudio && { color: 'white' }]}>Studio</Text>
+                    <Text style={[Styles.Description, OnStudio && { color: 'white' }]}>2 devices</Text>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={[Styles.StatusStudio, OnStudio && { color: 'white' }]}>{OnStudio ? 'On' : 'Off'}</Text>
+                        <TouchableOpacity style={Styles.MovStudio} onPress={Studio}>
+                            <View style={Styles.RadioStudio}></View>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </View>
-            
+
             <View style={Styles.HotBar}>
                 <TouchableOpacity style={Styles.iconHome}>
                     <Icon name="home-outline" size={30} color="#959595" />
@@ -188,5 +184,5 @@ export default function Screen(){
                 </TouchableOpacity>
             </View>
         </View>
-    )
-};
+    );
+}
