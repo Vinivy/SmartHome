@@ -62,11 +62,7 @@ Para executar o projeto, siga os passos abaixo:
 
 ## 📸 Capturas de Tela
 
-Adicione aqui algumas capturas de tela do aplicativo para ilustrar suas funcionalidades.
-
-## 🤝 Contribuições
-
-Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
+![Capa do Projeto e Seu Dising](./assets/Smart%20Home%20App%20Designs%20(Community).jpg)
 
 ## 📄 Licença
 
