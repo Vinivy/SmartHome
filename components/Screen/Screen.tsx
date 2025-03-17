@@ -125,7 +125,7 @@ export default function Screen() {
                     <Text style={[Styles.Description, OnLaps && { color: 'white' }]}>4 lamps</Text>
                     <View style={{ flexDirection: 'row' }}>
                         <Text style={[Styles.StatusLaps, OnLaps && { color: 'white' }]}>{OnLaps ? 'On' : 'Off'}</Text>
-                        <TouchableOpacity style={Styles.MovLight} onPress={Light}>
+                        <TouchableOpacity style={[Styles.MovLight, OnLaps && {justifyContent: 'flex-end', }]} onPress={Light}>
                             <View style={Styles.RadioLight}></View>
                         </TouchableOpacity>
                     </View>
@@ -139,7 +139,7 @@ export default function Screen() {
                     <Text style={[Styles.Description, OnSmart && { color: 'white' }]}>2 devices</Text>
                     <View style={{ flexDirection: 'row' }}>
                         <Text style={[Styles.StatusSmart, OnSmart && { color: 'white' }]}>{OnSmart ? 'On' : 'Off'}</Text>
-                        <TouchableOpacity style={Styles.MovSmart} onPress={Smart}>
+                        <TouchableOpacity style={[Styles.MovSmart, OnSmart && {justifyContent: 'flex-end'}]} onPress={Smart}>
                             <View style={Styles.RadioSmart}></View>
                         </TouchableOpacity>
                     </View>
@@ -152,7 +152,7 @@ export default function Screen() {
                     <Text style={[Styles.Description, OnConditionar && { color: 'white' }]}>1 device</Text>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <Text style={[Styles.StatusConditionar, OnConditionar && { color: 'white' }]}>{OnConditionar ? 'On' : 'Off'}</Text>
-                        <TouchableOpacity style={Styles.MovCond} onPress={Cond}>
+                        <TouchableOpacity style={[Styles.MovCond, OnConditionar && {justifyContent: 'flex-end'}]} onPress={Cond}>
                             <View style={Styles.RadioConditionar}></View>
                         </TouchableOpacity>
                     </View>
@@ -165,7 +165,7 @@ export default function Screen() {
                     <Text style={[Styles.Description, OnStudio && { color: 'white' }]}>2 devices</Text>
                     <View style={{ flexDirection: 'row' }}>
                         <Text style={[Styles.StatusStudio, OnStudio && { color: 'white' }]}>{OnStudio ? 'On' : 'Off'}</Text>
-                        <TouchableOpacity style={Styles.MovStudio} onPress={Studio}>
+                        <TouchableOpacity style={[Styles.MovStudio, OnStudio && {justifyContent: 'flex-end'}]} onPress={Studio}>
                             <View style={Styles.RadioStudio}></View>
                         </TouchableOpacity>
                     </View>

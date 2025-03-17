@@ -176,7 +176,6 @@ export const Styles = StyleSheet.create({
       MovLight : {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'flex-end',
         width: 65,
         height: 35,
         borderRadius: 20,
@@ -225,7 +224,6 @@ export const Styles = StyleSheet.create({
       MovSmart : {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'flex-end',
         width: 65,
         height: 35,
         borderRadius: 20,
@@ -273,7 +271,6 @@ export const Styles = StyleSheet.create({
       MovCond : {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'flex-end',
         width: 65,
         height: 35,
         borderRadius: 20,
@@ -322,7 +319,6 @@ export const Styles = StyleSheet.create({
       MovStudio : {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'flex-end',
         width: 65,
         height: 35,
         borderRadius: 20,
